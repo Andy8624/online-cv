@@ -1,0 +1,228 @@
+/* ============================================================
+   MOBILE RESPONSIVE STYLES — CV Duong Lap Khang
+   Applies on screens <= 768px (tablet + phone)
+   ============================================================ */
+
+/* ---- TABLET (≤ 768px) ---- */
+@media screen and (max-width: 768px) {
+  body {
+    padding: 0;
+    background-color: #f0f2f5;
+  }
+
+  .cv-container {
+    border-radius: 0;
+    box-shadow: none;
+    max-width: 100%;
+  }
+
+  /* --- HEADER: stack image + info vertically --- */
+  .cv-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 28px 20px 24px;
+    gap: 20px;
+  }
+
+  .header-image-container {
+    width: 110px;
+    height: 148px;
+    flex-shrink: 0;
+  }
+
+  .header-info {
+    width: 100%;
+  }
+
+  .name {
+    font-size: 26px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .title {
+    font-size: 14px;
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+  }
+
+  /* Contact items: center them, wrap nicely */
+  .contact-summary {
+    justify-content: center;
+    gap: 10px 18px;
+    font-size: 13px;
+  }
+
+  .contact-item {
+    gap: 6px;
+  }
+
+  .contact-icon {
+    font-size: 14px;
+  }
+
+  /* --- BODY GRID: collapse to single column --- */
+  .cv-grid {
+    grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 20px;
+  }
+
+  /* Right column sections: restore border/padding so they look like cards */
+  .column-right .section-box {
+    border: 1px solid #eee;
+    padding: 18px;
+    border-radius: 6px;
+  }
+
+  /* Section title sizes */
+  .section-title-main {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .section-title-side {
+    font-size: 16px;
+  }
+
+  /* Summary text */
+  .summary-text p {
+    font-size: 13.5px;
+    text-align: left; /* justify looks bad on narrow screens */
+  }
+
+  /* Timeline */
+  .timeline-item {
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .item-title {
+    font-size: 15px;
+  }
+
+  .item-subtitle {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .item-date {
+    font-size: 12px;
+  }
+
+  .item-details li {
+    font-size: 13.5px;
+    margin-bottom: 7px;
+  }
+
+  .tech-stack {
+    font-size: 12px;
+  }
+
+  /* Skill tags */
+  .skill-tag {
+    font-size: 11.5px;
+    padding: 4px 9px;
+  }
+
+  .skill-group-title {
+    font-size: 13px;
+  }
+}
+
+/* ---- SMALL PHONE (≤ 480px) ---- */
+@media screen and (max-width: 480px) {
+  .cv-header {
+    padding: 22px 14px 20px;
+    gap: 16px;
+  }
+
+  .header-image-container {
+    width: 90px;
+    height: 122px;
+  }
+
+  .name {
+    font-size: 22px;
+    letter-spacing: 0.5px;
+  }
+
+  .title {
+    font-size: 12.5px;
+    margin-bottom: 12px;
+  }
+
+  .contact-summary {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+  }
+
+  .cv-grid {
+    padding: 12px;
+    gap: 16px;
+  }
+
+  /* Stack item-header: title on top, date below */
+  .item-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .item-title {
+    font-size: 14px;
+  }
+
+  .item-date {
+    font-size: 11.5px;
+    margin-bottom: 2px;
+  }
+
+  .item-details li {
+    font-size: 13px;
+  }
+
+  .section-title-main {
+    font-size: 16px;
+  }
+
+  .section-title-side {
+    font-size: 15px;
+  }
+
+  .skill-tag {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+}
+
+/* ---- Extra-small (≤ 360px — very old/small phones) ---- */
+@media screen and (max-width: 360px) {
+  .name {
+    font-size: 19px;
+  }
+
+  .title {
+    font-size: 12px;
+  }
+
+  .cv-grid {
+    padding: 10px;
+  }
+
+  .section-box {
+    padding: 14px;
+  }
+
+  .column-right .section-box {
+    padding: 14px;
+  }
+
+  .item-details li {
+    font-size: 12.5px;
+    padding-left: 15px;
+  }
+}
