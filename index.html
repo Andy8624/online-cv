@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Duong Lap Khang (Andy) - Backend Developer / AI Specialist</title>
+    <style>
+        /* --- CSS Reset & Base Styles --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* Dùng System Font Stack để 100% không bị lỗi font */
+        body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.5; color: #333; background-color: #f0f2f5; padding: 20px 0; }
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+        a:hover { color: #3498db; }
+        ul { list-style: none; }
+
+        /* --- Main Layout Container --- */
+        .cv-container { max-width: 900px; margin: 0 auto; background: #fff; box-shadow: 0 5px 20px rgba(0,0,0,0.15); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+
+        /* --- HEADER SECTION --- */
+        .cv-header { background-color: #2c3e50; color: #fff; padding: 40px; display: flex; align-items: center; gap: 30px; border-bottom: 5px solid #3498db; }
+        
+        /* Khung ảnh chân dung - ĐÃ CHUYỂN THÀNH HÌNH CHỮ NHẬT ĐỨNG, HIỂN THỊ TRỌN VẸN */
+        .header-image-container { position: relative; width: 140px; height: 190px; overflow: hidden; }
+        .header-image { width: 100%; height: 100%; object-fit: contain; /* object-fit: contain để hiển thị TRỌN NGƯỜI mà không bị zoom */ border-radius: 4px; border: 4px solid #fff; box-shadow: 0 0 10px rgba(0,0,0,0.3); }
+        .header-image-placeholder { width: 100%; height: 100%; border-radius: 4px; border: 4px solid #fff; background-color: #7f8c8d; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ecf0f1; text-align: center; font-weight: 700; }
+        .header-info { flex: 1; }
+        .name { font-size: 36px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
+        .title { font-size: 18px; color: #3498db; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px; }
+        
+        /* Căn chỉnh bố cục liên hệ trên Header */
+        .contact-summary { display: flex; flex-wrap: wrap; gap: 15px 25px; font-size: 14px; }
+        .contact-item { display: flex; align-items: center; gap: 8px; }
+        .contact-icon { font-size: 16px; width: 20px; text-align: center; color: #bdc3c7; }
+
+        /* --- BODY SECTION (Using CSS Grid for Stability) --- */
+        .cv-grid { display: grid; grid-template-columns: 1fr 2fr; padding: 30px; gap: 30px; }
+
+        /* Cột Trái (Cột phụ) */
+        .column-left { display: flex; flex-direction: column; gap: 25px; }
+        /* Cột Phải (Cột chính) */
+        .column-right { display: flex; flex-direction: column; gap: 25px; }
+
+        /* --- REUSABLE SECTION STYLES --- */
+        .section-box { border: 1px solid #eee; border-radius: 6px; padding: 20px; }
+        .column-right .section-box { border: none; padding: 0; } /* Bỏ viền cho cột chính */
+
+        .section-title-side { font-size: 18px; font-weight: 700; color: #2c3e50; text-transform: uppercase; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #eee; position: relative; }
+        .section-title-side::after { content: ''; position: absolute; left: 0; bottom: -2px; width: 50px; height: 2px; background-color: #3498db; }
+
+        .section-title-main { font-size: 22px; font-weight: 700; color: #2c3e50; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; }
+        .section-title-main::after { content: ''; flex: 1; height: 2px; background-color: #eee; margin-left: 15px; }
+
+        /* --- STYLES CHO CÁC MỤC CỤ THỂ --- */
+        
+        /* Giới thiệu (Summary) */
+        .summary-text p { font-size: 14px; color: #555; text-align: justify; margin-bottom: 10px; }
+        
+        /* Kinh nghiệm & Dự án (Timeline) */
+        .timeline-item { margin-bottom: 25px; position: relative; padding-left: 20px; border-left: 2px solid #eee; }
+        .timeline-item::before { content: ''; position: absolute; left: -6px; top: 6px; width: 10px; height: 10px; background-color: #3498db; border-radius: 50%; }
+        .timeline-item:last-child { border-left: none; margin-bottom: 0; }
+        .timeline-item:last-child::after { content: ''; position: absolute; left: -1px; top: 20px; width: 2px; height: calc(100% + 5px); background-color: #eee; display: none;} /* Ẩn đường kẻ dọc ở item cuối cùng */
+
+        .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; flex-wrap: wrap; gap: 5px; }
+        .item-title { font-size: 16px; font-weight: 700; color: #2c3e50; }
+        .item-date { font-size: 13px; color: #7f8c8d; font-style: italic; font-weight: 700; white-space: nowrap;}
+        .item-subtitle { font-size: 14px; font-weight: 600; color: #3498db; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;}
+        
+        .item-details li { font-size: 14px; color: #555; margin-bottom: 8px; position: relative; padding-left: 18px; }
+        .item-details li::before { content: '▹'; position: absolute; left: 0; color: #3498db; font-weight: 700;}
+        .item-details li strong { color: #333; }
+        
+        .project-links { display: flex; gap: 15px; margin-bottom: 10px; font-size: 13px; color: #3498db; }
+        .project-links a:hover { text-decoration: underline; }
+        .tech-stack { font-size: 13px; color: #7f8c8d; margin-bottom: 10px; font-style: italic; background-color: #f8f9fa; padding: 5px; border-radius: 4px; border: 1px dashed #ddd;}
+
+        /* Kỹ năng (Skills) */
+        .skill-group { margin-bottom: 18px; }
+        .skill-group-title { font-size: 14px; font-weight: 700; color: #2c3e50; margin-bottom: 8px; display: block; border-left: 3px solid #3498db; padding-left: 8px;}
+        .skill-tags-container { display: flex; flex-wrap: wrap; gap: 6px; }
+        .skill-tag { display: inline-block; background-color: #ecf0f1; color: #2c3e50; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+        .skill-tag.ai-highlight { background-color: #3498db; color: #fff; font-weight: 700;}
+        
+        /* Highlight cho AI */
+        .ai-highlight-text { color: #2c3e50; border-bottom: 1px dashed #3498db; font-weight: 700; }
+
+        @media print {
+            body { background-color: #fff; padding: 0; font-size: 12px; } /* Giảm nhẹ cỡ chữ khi in */
+            .cv-container { box-shadow: none; max-width: 100%; width: 100%; border-radius: 0; }
+            .cv-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; background-color: #2c3e50 !important; color: #fff !important; padding: 25px; border-bottom: 4px solid #3498db !important; }
+            .name { font-size: 30px; }
+            .title { font-size: 16px; margin-bottom: 15px; }
+            .header-image-container { width: 100px; height: 136px; /* Giảm tỷ lệ khung ảnh khi in */ }
+            .contact-summary { gap: 10px 15px; }
+            .cv-grid { grid-template-columns: 280px 1fr; padding: 20px; gap: 20px; }
+            .section-box { border: 1px solid #ddd; padding: 15px; page-break-inside: avoid; } /* Tránh cắt đôi section */
+            .skill-tag { -webkit-print-color-adjust: exact; print-color-adjust: exact; background-color: #ecf0f1 !important; color: #2c3e50 !important; }
+            .skill-tag.ai-highlight { -webkit-print-color-adjust: exact; print-color-adjust: exact; background-color: #3498db !important; color: #fff !important; }
+            .tech-stack { padding: 3px; background-color: transparent !important; border: 1px dashed #ccc;}
+            .item-details li::before { color: #3498db !important; }
+            a { text-decoration: none !important; color: #3498db !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="cv-container">
+    
+    <header class="cv-header">
+        <div class="header-image-container">
+            <img src="avt.png" alt="Duong Lap Khang" class="header-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="header-image-placeholder" style="display:none;">
+                <p>INSERT<br>PHOTO</p>
+            </div>
+        </div>
+        
+        <div class="header-info">
+            <h1 class="name">Duong Lap Khang (Andy)</h1>
+            <p class="title">Backend Developer / AI Specialist</p>
+            
+            <ul class="contact-summary">
+                <li class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <a href="tel:0835608819">083 560 8819</a>
+                </li>
+                <li class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <a href="mailto:khangss2803@gmail.com">khangss2803@gmail.com</a>
+                </li>
+                <li class="contact-item">
+                    <span class="contact-icon">📅</span>
+                    <span>March 28, 2003</span>
+                </li>
+                <li class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <span>Binh Thuy, Can Tho, Vietnam</span>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="cv-grid">
+        
+        <aside class="column-left">
+            
+            <section class="skill-section section-box">
+                <h2 class="section-title-side">Skills</h2>
+                
+                <div class="skill-group">
+                    <span class="skill-group-title">AI & LLMs</span>
+                    <div class="skill-tags-container">
+                        <span class="skill-tag ai-highlight">OpenAI API</span>
+                        <span class="skill-tag ai-highlight">Gemini LLM</span>
+                        <span class="skill-tag ai-highlight">Hugging Face</span>
+                        <span class="skill-tag ai-highlight">LangChain</span>
+                        <span class="skill-tag ai-highlight">RAG</span>
+                        <span class="skill-tag">Prompt Engineering</span>
+                        <span class="skill-tag">LLM Orchestration</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <span class="skill-group-title">AI Vision & OCR</span>
+                    <div class="skill-tags-container">
+                        <span class="skill-tag ai-highlight">SigLIP2</span>
+                        <span class="skill-tag ai-highlight">Azure AI Document Intelligence</span>
+                        <span class="skill-tag ai-highlight">Qwen (On-premise)</span>
+                        <span class="skill-tag">Image Semantic Search</span>
+                        <span class="skill-tag">Document Extraction</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <span class="skill-group-title">Databases & Vector DB</span>
+                    <div class="skill-tags-container">
+                        <span class="skill-tag ai-highlight">Pinecone</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">Kafka</span>
+                        <span class="skill-tag">MySQL / Oracle</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <span class="skill-group-title">Backend & DevOps</span>
+                    <div class="skill-tags-container">
+                        <span class="skill-tag">Java Spring Boot</span>
+                        <span class="skill-tag">Python (FastAPI)</span>
+                        <span class="skill-tag">Node.js (NestJS)</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Linux (Ubuntu)</span>
+                        <span class="skill-tag">CI/CD (GitHub Actions)</span>
+                        <span class="skill-tag">Git</span>
+                    </div>
+                </div>
+                
+                <div class="skill-group">
+                    <span class="skill-group-title">Frontend</span>
+                    <div class="skill-tags-container">
+                        <span class="skill-tag">Next.js</span>
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">TailwindCSS</span>
+                        <span class="skill-tag">Vue.js</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="education-section section-box">
+                <h2 class="section-title-side">Education</h2>
+                <div class="education-item">
+                    <p style="font-weight: 700; color: #2c3e50;">Can Tho University</p>
+                    <p style="font-style: italic; color: #7f8c8d;">2021 – 2025</p>
+                    <p>B.Sc. in Information Technology</p>
+                    <p><strong>GPA:</strong> 3.80 / 4.00</p>
+                </div>
+            </section>
+            
+            <section class="certifications-section section-box">
+                <h2 class="section-title-side">Certifications</h2>
+                <div class="education-item">
+                    <p style="font-weight: 700; color: #2c3e50;">English Proficiency: B2 VSTEP</p>
+                    <p style="color: #555;">Proficient in communication and technical documentation.</p>
+                </div>
+            </section>
+
+        </aside>
+        
+        <main class="column-right">
+            
+            <section class="summary-section section-box">
+                <h2 class="section-title-main">Professional Summary</h2>
+                <div class="summary-text">
+                    <p>
+                        Software engineer with a B.Sc. in Information Technology (GPA 3.80/4.00) and a strong focus on Backend development combined with practical AI integration. Core strengths include <strong>designing and deploying advanced AI features</strong> — LLMs, Vision models, RAG pipelines — directly into production systems to enhance user experience and system efficiency. Experienced in building scalable services with <strong>Java Spring Boot, Python (FastAPI), and NestJS</strong>, leveraging tools such as <strong>LangChain, Pinecone</strong>, and cloud AI services. Currently working as a Backend/AI Engineer at FPT Software, delivering intelligent document extraction and Knowledge Base solutions.
+                    </p>
+                </div>
+            </section>
+
+            <section class="experience-section section-box">
+                <h2 class="section-title-main">Work Experience</h2>
+
+                <div class="timeline-item">
+                    <header class="item-header">
+                        <h3 class="item-title">FPT Software</h3>
+                        <span class="item-date">07/2025 – Present</span>
+                    </header>
+                    <p class="item-subtitle">Backend Developer / AI Engineer</p>
+                    <div class="item-details">
+                        <ul>
+                            <li>Built and maintained core systems using <strong>Java Spring Boot</strong> and <strong>Python FastAPI</strong>, with <strong>Next.js</strong> for frontend integration.</li>
+                            <li>Designed and deployed a high-performance <strong>OCR document extraction system</strong> for personal ID documents using <strong>Azure AI Document Intelligence</strong> and an on-premise <strong>Qwen model</strong> via Hugging Face.</li>
+                            <li>Architected a smart <strong>Knowledge Base system</strong> for the AMS project using <strong>RAG (Retrieval-Augmented Generation)</strong> with <strong>LangChain</strong> and <span class="ai-highlight-text">Pinecone</span> as the vector store.</li>
+                            <li>Integrated <strong>OpenAI API</strong> and <strong>Gemini</strong> into automated data classification and processing pipelines.</li>
+                            <li>Optimized concurrent request handling using <strong>Redis</strong> caching and <strong>Kafka</strong> message queuing, ensuring reliable throughput for thousands of simultaneous requests.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <header class="item-header">
+                        <h3 class="item-title">Teknix Corporation</h3>
+                        <span class="item-date">02/2025 – 07/2025</span>
+                    </header>
+                    <p class="item-subtitle">Backend Developer</p>
+                    <div class="item-details">
+                        <ul>
+                            <li>Designed the database schema and built RESTful APIs for an <strong>Accounting Management System</strong> using <strong>NestJS</strong> and <strong>Prisma ORM</strong>.</li>
+                            <li>Collaborated with the frontend team to define API contracts and ensure seamless data flow across modules.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="projects-section section-box">
+                <h2 class="section-title-main">Featured Projects</h2>
+
+                <div class="timeline-item">
+                    <header class="item-header">
+                        <h3 class="item-title">E-commerce Platform — Graduation Thesis</h3>
+                        <span class="item-date">02/2024 – 04/2025</span>
+                    </header>
+                    <p class="item-subtitle">AI-Integrated Backend Developer</p>
+                    <p class="tech-stack">Tech: Spring Boot · FastAPI · Gemini LLM · SigLIP2 · Pinecone · Redis · Kafka · MySQL</p>
+                    <div class="item-details">
+                        <ul>
+                            <li><strong class="ai-highlight">AI — Sentiment Analysis & Recommendation:</strong> Integrated <strong>Gemini LLM</strong> to analyze user review sentiment and power a personalized product recommendation engine.</li>
+                            <li><strong class="ai-highlight">AI — Semantic Search:</strong> Implemented natural-language product search using <strong>Gemini LLM</strong> embeddings and <span class="ai-highlight-text">Pinecone</span> vector database.</li>
+                            <li><strong class="ai-highlight">AI — Image Search:</strong> Deployed <strong>SigLIP2</strong> model to enable low-latency product search by image.</li>
+                            <li>Ensured transactional consistency under high-concurrency purchase flows using <strong>Pessimistic</strong> and <strong>Optimistic Locking</strong> strategies.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <header class="item-header">
+                        <h3 class="item-title"><a href="https://incodeservice.com" target="_blank">IncodeService.com</a></h3>
+                        <span class="item-date">Ongoing</span>
+                    </header>
+                    <p class="item-subtitle">Founder · Fullstack Developer · DevOps</p>
+                    <p class="tech-stack">Tech: Java Spring Boot · React.js · Docker · GitHub Actions CI/CD · Ubuntu VPS</p>
+                    <div class="item-details">
+                        <ul>
+                            <li>Built and operate a live SaaS product end-to-end, from backend API design to frontend delivery.</li>
+                            <li>Set up a fully automated <strong>CI/CD pipeline with GitHub Actions</strong>, deploying Docker containers to a self-managed Ubuntu VPS on every push to main.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+</div>
+
+</body>
+</html>
