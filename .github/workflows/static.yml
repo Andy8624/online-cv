@@ -33,6 +33,16 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Inject secrets into tracking.js
+        env:
+          FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+        run: |
+          sed -i "s|__FIREBASE_CONFIG__|${FIREBASE_CONFIG}|g" tracking.js
+          sed -i "s|__BOT_TOKEN__|${BOT_TOKEN}|g" tracking.js
+          sed -i "s|__CHAT_ID__|${CHAT_ID}|g" tracking.js
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
