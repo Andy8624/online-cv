@@ -1,22 +1,22 @@
-# Andy Duong — Online CV
+# Andy Duong — Online Resume
 
-Personal online CV for **Khang (Andy) Duong**, a Software Engineer focused on **Backend & AI Systems**.
+Professional online resume for **Khang (Andy) Duong**, a Software Engineer focused on **Backend Engineering & Applied AI**.
 
-## Live CV
+## Live Resume
 
 https://andy8624.github.io/online-cv/
 
-## Focus Areas
+## Core Focus
 
-- Backend Engineering
-- Python / FastAPI
-- Java / Spring Boot
-- RAG & LLM Integration
-- Document AI & OCR
-- REST APIs & WebSocket
-- Docker, CI/CD & Production Deployment
+- Backend Engineering — Python / FastAPI, Java / Spring Boot
+- Applied AI — RAG, LLM integration, OCR & Document AI
+- APIs — REST, WebSocket, asynchronous backend workflows
+- Data — PostgreSQL, Redis, Kafka
+- Production Delivery — Docker, GitHub Actions, Linux, Nginx
 
-## Links
+## Profiles
 
 - LinkedIn: https://www.linkedin.com/in/khangduong283/
 - GitHub: https://github.com/Andy8624
+
+The page is designed as a simple, ATS-friendly one-column resume and includes print styles for saving an A4 PDF directly from the browser.
