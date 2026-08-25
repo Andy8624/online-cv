@@ -4,25 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Andy Duong | Full-Stack Developer & AI Engineer</title>
-  <meta name="description" content="Andy Duong — Full-Stack Developer and AI Engineer building production web applications, AI assistants, document automation systems, APIs, and end-to-end deployments.">
+  <meta name="description" content="Andy Duong — Full-Stack Developer and AI Engineer building production web applications, agentic AI systems, RAG, document automation, APIs, and end-to-end deployments.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://andy8624.github.io/online-cv/">
   <meta property="og:title" content="Andy Duong | Full-Stack Developer & AI Engineer">
-  <meta property="og:description" content="Full-stack engineering, applied AI, RAG, Document AI, API integrations, automation, and production deployment.">
+  <meta property="og:description" content="Full-stack engineering, applied AI systems, RAG, Document AI, API integrations, automation, and production infrastructure.">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://andy8624.github.io/online-cv/">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="toolbar" aria-label="Resume actions">
-    <button class="print-button" type="button" onclick="window.print()">Print / Save PDF</button>
+    <span class="print-tip">For a clean PDF, turn off “Headers and footers” in the print dialog.</span>
+    <button class="print-button" type="button" onclick="printResume()">Print / Save PDF</button>
   </div>
 
   <main class="resume">
     <header class="resume-header">
       <h1>Andy Duong</h1>
       <p class="role">Full-Stack Developer &amp; AI Engineer</p>
-      <p class="focus">Production Web Apps · AI Agents &amp; RAG · Document AI · API Integrations · End-to-End Delivery</p>
+      <p class="focus">Full-Stack Engineering · Applied AI Systems · RAG &amp; Document AI · API Integrations · Production Infrastructure</p>
 
       <ul class="contact-list" aria-label="Contact information">
         <li><a href="mailto:khangss2803@gmail.com">khangss2803@gmail.com</a></li>
@@ -37,12 +38,22 @@
     <section class="resume-section">
       <h2>Summary</h2>
       <p class="summary">
-        Full-stack developer and AI engineer with hands-on experience building production web applications,
-        backend APIs, AI assistants, RAG systems, and document automation workflows. Comfortable owning products
-        end to end — from frontend and backend implementation to third-party API integration, background jobs,
-        Docker, CI/CD, GHCR, and VPS deployment. Strongest with Python/FastAPI, Java/Spring Boot, TypeScript,
-        React/Next.js, PostgreSQL, Redis, and practical LLM integration for real business workflows.
+        Full-stack developer and AI engineer experienced in delivering production web applications, backend APIs,
+        AI assistants, RAG systems, and document automation workflows. Owns products end to end — frontend,
+        backend, AI integration, third-party APIs, background processing, databases, CI/CD, containerization, and
+        VPS deployment — with a focus on solving real business workflows rather than isolated prototypes.
       </p>
+    </section>
+
+    <section class="resume-section skills-section">
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <p><strong>Languages:</strong> Python, Java, TypeScript, JavaScript, SQL</p>
+        <p><strong>Backend &amp; APIs:</strong> FastAPI, Spring Boot, NestJS, REST APIs, WebSocket, SSE, Redis, BullMQ, Celery</p>
+        <p><strong>AI Engineering:</strong> RAG, Agentic AI, LangGraph, LangChain, OCR, Document AI, LLM integration, embeddings, hybrid/vector search, Qdrant, Pinecone</p>
+        <p><strong>Frontend:</strong> React, Next.js, HTML, CSS, JavaScript</p>
+        <p><strong>Data &amp; DevOps:</strong> PostgreSQL, MySQL, Redis, Kafka, Docker/Compose, GitHub Actions, GHCR, Linux VPS, Nginx, Nginx Proxy Manager, Portainer, Cloudflare/R2</p>
+      </div>
     </section>
 
     <section class="resume-section">
@@ -85,14 +96,32 @@
       <article class="entry project-entry">
         <div class="entry-header">
           <div>
-            <h3><a href="https://incodeservice.com" target="_blank" rel="noopener noreferrer">IncodeService.com</a></h3>
-            <p class="entry-role">Client Product · End-to-End Full-Stack Engineering</p>
+            <h3>Agentic Document Chatbot</h3>
+            <p class="entry-role">Independent Project · Full-Stack AI Platform</p>
           </div>
+          <p class="date">2026</p>
         </div>
-        <p class="stack">Java · Spring Boot · React · REST APIs · WebSocket · Docker · GitHub Actions · GHCR · Ubuntu VPS</p>
+        <p class="stack">FastAPI · Next.js · LangGraph · PostgreSQL · Redis/Celery · Qdrant · MinIO/R2 · Docker · GitHub Actions</p>
         <ul class="bullets">
-          <li>Built and operated an automotive-service platform used by <strong>nearly 2,000 users</strong> and handling approximately <strong>100,000 requests per week</strong> across production workflows.</li>
-          <li>Designed backend APIs and real-time workflows, exposed integration APIs for a <strong>desktop application</strong>, and managed the full delivery lifecycle from development to Dockerized CI/CD and VPS deployment.</li>
+          <li>Built a secure multi-workspace <strong>Agentic RAG platform</strong> for private document knowledge, supporting PDF, DOCX, TXT, and image ingestion with OCR, chunking, embeddings, indexing, and source-grounded answers.</li>
+          <li>Implemented a custom LangGraph tool-calling agent with hybrid dense/sparse retrieval, reranking, validated citations, conversation memory, document-aware tools, and streamed responses over SSE.</li>
+          <li>Designed asynchronous document processing and production delivery with Redis/Celery, Qdrant, S3-compatible storage, workspace isolation, Docker, CI/CD, GHCR, migrations, and VPS deployment workflows.</li>
+        </ul>
+      </article>
+
+      <article class="entry project-entry">
+        <div class="entry-header">
+          <div>
+            <h3><a href="https://thenailloungetx.com/" target="_blank" rel="noopener noreferrer">The Nail Lounge AI Booking Assistant</a></h3>
+            <p class="entry-role">Client Project · Agentic AI &amp; Workflow Automation</p>
+          </div>
+          <p class="date">2026</p>
+        </div>
+        <p class="stack">JavaScript · AI Agent · Tool Calling · External APIs · Redis/BullMQ · Email · WhatsApp · Cloudflare</p>
+        <ul class="bullets">
+          <li>Built a customer-facing <strong>tool-calling AI booking assistant</strong> that recommends services, collects customer and appointment details, keeps conversational context, and orchestrates booking workflows through external scheduling APIs.</li>
+          <li>Connected the agent to business tools for service/staff/availability lookup, lead capture into structured spreadsheet records, email actions, booking operations, and automated WhatsApp notifications to the salon owner.</li>
+          <li>Used background queues for latency-prone external API and notification work so customer conversations remain responsive while integrations run asynchronously.</li>
         </ul>
       </article>
 
@@ -104,55 +133,27 @@
           </div>
           <p class="date">2026 — Present</p>
         </div>
-        <p class="stack">Python · FastAPI · Next.js · OCR · LLM · PostgreSQL · Docker · GitHub Actions</p>
+        <p class="stack">Python · FastAPI · Next.js · OCR · LLM · PostgreSQL · Redis · Docker · GitHub Actions</p>
         <ul class="bullets">
-          <li>Built a document automation product that extracts structured data from PDFs and images into <strong>JSON, CSV, and Excel-ready outputs</strong>, including predefined and custom-schema extraction.</li>
-          <li>Designed production-oriented ingestion and processing flows with validation, queue-friendly background processing for latency-prone AI/OCR work, structured error contracts, API examples, and containerized deployment.</li>
+          <li>Built an API-first document automation product that extracts structured data from PDFs and images into <strong>JSON, CSV, and Excel-ready outputs</strong>, including predefined and custom-schema extraction.</li>
+          <li>Designed asynchronous extraction workflows that move long-running OCR/LLM and external-provider calls off the request path using Redis-backed background processing, keeping API responses responsive under slower AI operations.</li>
+          <li>Implemented file validation, structured error contracts, reusable extraction APIs, containerized deployment, CI/CD, and production hosting for a complete end-to-end document processing workflow.</li>
         </ul>
       </article>
 
       <article class="entry project-entry">
         <div class="entry-header">
           <div>
-            <h3><a href="https://thenailloungetx.com/" target="_blank" rel="noopener noreferrer">The Nail Lounge AI Booking Assistant</a></h3>
-            <p class="entry-role">Client Project · AI Chatbot &amp; Booking Automation</p>
+            <h3><a href="https://incodeservice.com" target="_blank" rel="noopener noreferrer">IncodeService.com</a></h3>
+            <p class="entry-role">Client Product · End-to-End Full-Stack Engineering</p>
           </div>
-          <p class="date">2026</p>
         </div>
-        <p class="stack">HTML · CSS · JavaScript · AI Chatbot · External APIs · WhatsApp Integration · Cloudflare</p>
+        <p class="stack">Java · Spring Boot · React · REST APIs · WebSocket · Docker · GitHub Actions · GHCR · Ubuntu VPS</p>
         <ul class="bullets">
-          <li>Built a customer-facing AI assistant for a U.S. nail salon that guides service selection and collects structured booking details such as name, phone, email, service, technician preference, date, and time.</li>
-          <li>Designed the booking handoff around official external integrations for services, technicians, availability, and prefilled booking data, while keeping the final appointment submission under customer control.</li>
-          <li>Automated structured lead/booking notifications to the salon owner through <strong>WhatsApp</strong>, reducing the amount of manual back-and-forth needed before an appointment.</li>
+          <li>Built and operated an automotive-service platform used by <strong>nearly 2,000 users</strong> and handling approximately <strong>100,000 requests per week</strong> across production workflows.</li>
+          <li>Designed backend APIs and real-time workflows, exposed integration APIs for a <strong>desktop application</strong>, and managed the full delivery lifecycle from development to Dockerized CI/CD and VPS deployment.</li>
         </ul>
       </article>
-
-      <article class="entry project-entry">
-        <div class="entry-header">
-          <div>
-            <h3>Agentic Document Chatbot</h3>
-            <p class="entry-role">Independent Project · Full-Stack AI Platform</p>
-          </div>
-          <p class="date">2026</p>
-        </div>
-        <p class="stack">FastAPI · Next.js · LangGraph · PostgreSQL · Redis/Celery · Qdrant · MinIO/R2 · Docker · GitHub Actions</p>
-        <ul class="bullets">
-          <li>Built an end-to-end multi-workspace document chat platform with <strong>28 API paths</strong> across a <strong>7-service Docker stack</strong>, covering authentication, workspace RBAC, document ingestion, chat, citations, and background processing.</li>
-          <li>Implemented hybrid dense/sparse retrieval, reranking, validated citations, conversation memory, SSE token streaming, and async document pipelines for parsing, OCR, chunking, embedding, and indexing.</li>
-          <li>Added production-focused security and delivery controls including refresh-token rotation, trusted workspace/document isolation, structured logging, CI quality gates, GHCR image builds, migrations, and VPS deployment workflows; <strong>11 backend tests pass</strong> in the validated build.</li>
-        </ul>
-      </article>
-    </section>
-
-    <section class="resume-section">
-      <h2>Technical Skills</h2>
-      <div class="skills-grid">
-        <p><strong>Languages:</strong> Python, Java, TypeScript, JavaScript, SQL</p>
-        <p><strong>Backend &amp; APIs:</strong> FastAPI, Spring Boot, NestJS, REST APIs, WebSocket, SSE, Redis/BullMQ, Celery</p>
-        <p><strong>AI Engineering:</strong> RAG, LangGraph, LangChain, OCR, Document AI, LLM integration, embeddings, hybrid/vector search, Qdrant, Pinecone</p>
-        <p><strong>Frontend:</strong> React, Next.js, HTML, CSS, JavaScript</p>
-        <p><strong>Data &amp; DevOps:</strong> PostgreSQL, MySQL, Redis, Kafka, Docker/Compose, GitHub Actions, GHCR, Linux VPS, Nginx, Nginx Proxy Manager, Portainer, Cloudflare/R2</p>
-      </div>
     </section>
 
     <section class="resume-section education-section">
@@ -167,5 +168,21 @@
       <p class="education-note"><strong>English:</strong> Working proficiency</p>
     </section>
   </main>
+
+  <script>
+    function printResume() {
+      const originalTitle = document.title;
+      document.title = " ";
+
+      const restoreTitle = () => {
+        document.title = originalTitle;
+        window.removeEventListener("afterprint", restoreTitle);
+      };
+
+      window.addEventListener("afterprint", restoreTitle);
+      window.print();
+      window.setTimeout(restoreTitle, 2000);
+    }
+  </script>
 </body>
 </html>
