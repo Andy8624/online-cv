@@ -45,6 +45,13 @@ strong {
   margin: 22px auto 12px;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+}
+
+.print-tip {
+  color: #697386;
+  font-size: 12px;
 }
 
 .print-button {
@@ -254,6 +261,9 @@ h1 {
   .toolbar {
     width: min(100% - 24px, 920px);
     margin-top: 12px;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 7px;
   }
 
   .resume {
@@ -299,7 +309,7 @@ h1 {
 
 @page {
   size: A4;
-  margin: 12mm 13mm 14mm;
+  margin: 13mm 13mm 15mm;
 }
 
 @media print {
@@ -318,7 +328,7 @@ h1 {
   }
 
   body {
-    font-size: 9.3pt;
+    font-size: 9.2pt;
     line-height: 1.31;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
@@ -378,6 +388,10 @@ h1 {
 
   .summary {
     margin-bottom: 0;
+  }
+
+  .skills-section {
+    break-inside: avoid-page;
   }
 
   .entry {
