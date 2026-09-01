@@ -1,0 +1,106 @@
+name: Generate CV PDF
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "index.html"
+      - "style.css"
+      - ".github/workflows/generate-cv-pdf.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "cv-pdf"
+  cancel-in-progress: true
+
+jobs:
+  generate-pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Playwright and Chromium
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+
+      - name: Start local CV server
+        run: |
+          python3 -m http.server 4173 > /tmp/online-cv-server.log 2>&1 &
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:4173/ > /dev/null; then
+              exit 0
+            fi
+            sleep 0.5
+          done
+          cat /tmp/online-cv-server.log
+          exit 1
+
+      - name: Generate A4 portrait PDF
+        run: |
+          node <<'EOF'
+          const { chromium } = require('playwright');
+
+          (async () => {
+            const browser = await chromium.launch({ headless: true });
+            const page = await browser.newPage();
+
+            await page.goto('http://127.0.0.1:4173/', {
+              waitUntil: 'networkidle'
+            });
+
+            await page.emulateMedia({ media: 'print' });
+            await page.addStyleTag({
+              content: `
+                @page {
+                  size: A4 portrait !important;
+                  margin: 13mm 13mm 15mm !important;
+                }
+
+                html,
+                body,
+                .resume {
+                  transform: none !important;
+                  writing-mode: horizontal-tb !important;
+                }
+              `
+            });
+
+            await page.pdf({
+              path: 'cv.pdf',
+              printBackground: true,
+              preferCSSPageSize: true,
+              landscape: false,
+              displayHeaderFooter: false
+            });
+
+            await browser.close();
+          })().catch((error) => {
+            console.error(error);
+            process.exit(1);
+          });
+          EOF
+
+      - name: Commit generated PDF
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cv.pdf
+
+          if git diff --cached --quiet; then
+            echo "cv.pdf is already up to date."
+            exit 0
+          fi
+
+          git commit -m "Update generated CV PDF"
+          git push
