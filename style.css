@@ -308,7 +308,7 @@ h1 {
 }
 
 @page {
-  size: A4;
+  size: A4 portrait;
   margin: 13mm 13mm 15mm;
 }
 
@@ -322,8 +322,10 @@ h1 {
 
   html,
   body {
-    width: auto;
+    width: 100% !important;
+    max-width: 100% !important;
     min-height: auto;
+    overflow: visible !important;
     background: #ffffff;
   }
 
@@ -339,10 +341,12 @@ h1 {
   }
 
   .resume {
-    width: auto;
+    width: 100% !important;
+    max-width: none !important;
     min-height: auto;
     margin: 0;
     padding: 0;
+    overflow: visible !important;
     box-shadow: none;
   }
 
