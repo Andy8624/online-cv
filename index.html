@@ -11,12 +11,11 @@
   <meta property="og:description" content="AI backend engineering, agentic workflows, RAG, Document AI, API integrations, background processing, and production delivery.">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://andy8624.github.io/online-cv/">
-  <link rel="stylesheet" href="style.css?v=20260901-print-fix-2">
+  <link rel="stylesheet" href="style.css?v=20260901-download-pdf">
   <style media="print">
     @page {
-      size: 210mm 297mm;
+      size: A4 portrait;
       margin: 13mm 13mm 15mm;
-      page-orientation: upright;
     }
 
     html,
@@ -45,8 +44,7 @@
 </head>
 <body>
   <div class="toolbar" aria-label="Resume actions">
-    <span class="print-tip">For a clean PDF, turn off “Headers and footers” in the print dialog.</span>
-    <button class="print-button" type="button" onclick="printResume()">Print / Save PDF</button>
+    <a class="print-button download-button" href="./cv.pdf" download="Andy-Duong-CV.pdf" aria-label="Download Andy Duong CV as PDF">Download PDF</a>
   </div>
 
   <main class="resume">
@@ -208,21 +206,5 @@
       <p class="education-note"><strong>English:</strong> Working proficiency</p>
     </section>
   </main>
-
-  <script>
-    function printResume() {
-      const originalTitle = document.title;
-      document.title = " ";
-
-      const restoreTitle = () => {
-        document.title = originalTitle;
-        window.removeEventListener("afterprint", restoreTitle);
-      };
-
-      window.addEventListener("afterprint", restoreTitle);
-      window.print();
-      window.setTimeout(restoreTitle, 2000);
-    }
-  </script>
 </body>
 </html>
