@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Andy Duong | AI Backend Engineer / AI Workflow Engineer</title>
-  <meta name="description" content="Andy Duong — AI Backend Engineer / AI Workflow Engineer building production APIs, agentic AI systems, RAG, document automation, background workflows, and end-to-end deployments.">
+  <meta name="description" content="Andy Duong — AI Backend Engineer / AI Workflow Engineer building production APIs, agentic AI systems, RAG, real-time voice AI, document automation, background workflows, and end-to-end deployments.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://andy8624.github.io/online-cv/">
   <meta property="og:title" content="Andy Duong | AI Backend Engineer / AI Workflow Engineer">
-  <meta property="og:description" content="AI backend engineering, agentic workflows, RAG, Document AI, API integrations, background processing, and production delivery.">
+  <meta property="og:description" content="AI backend engineering, agentic workflows, RAG, real-time voice AI, Document AI, API integrations, background processing, and production delivery.">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://andy8624.github.io/online-cv/">
   <link rel="stylesheet" href="style.css?v=20260901-download-pdf">
@@ -66,7 +66,7 @@
     <section class="resume-section">
       <h2>Summary</h2>
       <p class="summary">
-        AI backend engineer focused on production APIs, agentic workflows, RAG, document processing, and third-party integrations.
+        AI backend engineer focused on production APIs, agentic workflows, RAG, real-time voice AI, document processing, and third-party integrations.
         Currently working at <strong>FPT Software</strong>, a global technology and IT services company operating across 30+ countries,
         with hands-on enterprise training in AI engineering and AI-assisted software development. Strong backend foundation in
         Python/FastAPI and Java/Spring Boot, with practical experience building asynchronous workflows, queues, databases,
@@ -78,7 +78,7 @@
       <h2>Technical Skills</h2>
       <div class="skills-grid">
         <p><strong>AI Backend:</strong> Python, FastAPI, Java, Spring Boot, NestJS, REST APIs, WebSocket, SSE, Redis, BullMQ, Celery</p>
-        <p><strong>AI Workflows:</strong> Agentic AI, RAG, LangGraph, LangChain, tool calling, OCR, Document AI, LLM integration, embeddings, hybrid/vector search, Qdrant, Pinecone</p>
+        <p><strong>AI Workflows:</strong> Agentic AI, RAG, LangGraph, LangChain, tool calling, Voice AI, Gemini Live, Azure Speech Services, OCR, Document AI, LLM integration, embeddings, hybrid/vector search, Qdrant, Pinecone</p>
         <p><strong>AI Developer Tooling:</strong> MCP integrations, reusable agent skills, prompt engineering, context engineering, token-efficient AI workflows, GitHub Copilot</p>
         <p><strong>Data &amp; Infrastructure:</strong> PostgreSQL, MySQL, Redis, Kafka, Docker/Compose, GitHub Actions, GHCR, Linux VPS, Nginx, Nginx Proxy Manager, Portainer, Cloudflare/R2</p>
         <p><strong>Frontend:</strong> TypeScript, JavaScript, React, Next.js, HTML, CSS</p>
@@ -144,6 +144,22 @@
           <li>Built a secure multi-workspace <strong>Agentic RAG platform</strong> for private document knowledge, supporting PDF, DOCX, TXT, and image ingestion with OCR, chunking, embeddings, indexing, and source-grounded answers.</li>
           <li>Implemented a LangGraph tool-calling workflow with hybrid dense/sparse retrieval, reranking, validated citations, conversation memory, document-aware tools, and streamed responses over SSE.</li>
           <li>Designed asynchronous document processing with Redis/Celery, vector search, S3-compatible storage, workspace isolation, Docker, CI/CD, GHCR, migrations, and VPS deployment workflows.</li>
+        </ul>
+      </article>
+
+      <article class="entry project-entry">
+        <div class="entry-header">
+          <div>
+            <h3><a href="https://sujido.kruzoservice.com/" target="_blank" rel="noopener noreferrer">SujiDo AI Voice Tutor</a></h3>
+            <p class="entry-role">Product Project · Real-time Voice AI &amp; Learning Automation</p>
+          </div>
+          <p class="date">2026</p>
+        </div>
+        <p class="stack">Gemini Live Native Audio · Function Calling · Azure Speech · LLM · Redis/BullMQ · TypeScript</p>
+        <ul class="bullets">
+          <li>Led the <strong>AI implementation</strong> for a Japanese-learning platform, building a real-time voice tutor that supports Vietnamese/Japanese conversations, microphone audio, live transcripts, VAD, and interruption handling.</li>
+          <li>Implemented Gemini Live function calling so the tutor can retrieve verified lesson/progress context and trigger server-validated Japanese pronunciation assessment; used <strong>Azure Speech Services</strong> for speech recognition, text-to-speech, language detection, and pronunciation scoring.</li>
+          <li>Designed a controlled AI architecture with structured outputs, schema and semantic validation, allowlisted tools, ephemeral tokens, Redis/BullMQ background jobs, timeout/retry/fallback handling, and privacy-aware telemetry that avoids raw audio and API keys.</li>
         </ul>
       </article>
 
